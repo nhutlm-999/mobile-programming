@@ -1,0 +1,52 @@
+TÓM TẮT THÔNG TIN DỰ ÁN
+📌 Tên dự án
+Smart Task Manager – Basic Persistence
+🎯 Mục tiêu học tập (học xong phải làm được)
+Hiểu Local Persistence là gì (lưu dữ liệu vào máy, không cần mạng).
+Biết cách serialize JSON: đổi List<Task> → String JSON để lưu.
+Nắm async/await khi đọc/ghi storage (đọc ghi là việc “mất thời gian”).
+Biết giới hạn của SharedPreferences: chỉ phù hợp dữ liệu nhỏ, không phải database.
+CHỨC NĂNG (đầy đủ CRUD task)
+Create: Thêm task mới
+Read: Hiển thị danh sách task (load từ SharedPreferences khi mở app)
+Update:
+Sửa tiêu đề task
+Đánh dấu hoàn thành/chưa hoàn thành
+Delete: Xoá task
+Persistence:
+Lưu danh sách khi thao tác (thêm/sửa/xoá/toggle)
+Mở app lại tự load ra như cũ
+🛠 Công nghệ sử dụng (cơ bản, phù hợp mới học)
+Flutter SDK (khuyến nghị Flutter stable)
+Dart
+IDE: VS Code (hoặc Android Studio)
+Package:
+shared_preferences (lưu key–value)
+(Tuỳ chọn) Thiết bị test: Android Emulator / iPhone Simulator / điện thoại thật
+CẤU TRÚC THƯ MỤC
+project-structure.txt
+lib/
+├── main.dart
+├── models/
+│ └── task.dart
+├── services/
+│ └── preferences_service.dart
+├── screens/
+│ └── home_screen.dart
+Giải thích dễ hiểu:
+64
+PhucPT10@fpt.edu.vn
+models/: chứa dữ liệu (Task)
+services/: chứa logic lưu/đọc SharedPreferences
+screens/: giao diện màn hình (HomeScreen)
+main.dart: chạy app, khai báo MaterialApp
+TÓM TẮT DANH SÁCH BƯỚC THỰC HIỆN
+1. Tạo project Flutter
+2. Thêm dependency shared_preferences
+3. Tạo model Task + toJson/fromJson
+4. Tạo PreferencesService để save/load
+5. Tạo UI cơ bản (List + thêm task)
+6. Gắn logic lưu & load (persistence)
+7. Bổ sung CRUD đầy đủ (sửa, xoá, toggle done)
+8.Test và kiểm chứng persistence
+9.Tổng hợp lỗi phổ biến + cách tránh
