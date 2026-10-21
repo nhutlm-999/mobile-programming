@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'package:vinhvt9_sqlite/models/note.dart';
 
 class DatabaseHelper {
@@ -20,6 +22,10 @@ class DatabaseHelper {
   }
 
   Future<Database> _initDatabase() async {
+    if (kIsWeb) {
+      databaseFactory = databaseFactoryFfiWeb; // chuyển factory khi chạy web
+      return openDatabase(_databaseName, version: 1, onCreate: _onCreate);
+    }
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, _databaseName);
     return openDatabase(path, version: 1, onCreate: _onCreate);
@@ -44,6 +50,26 @@ class DatabaseHelper {
     );
 
     return [for (final map in maps) Note.fromJson(map)];
+  }
+
+  Future<int> insertNote(Note note) async {
+    final db = await database;
+    return await db.insert(
+      _noteTableName,
+      note.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<int> updateNote(Note note) async {
+    final db = await database;
+
+    return await db.update(
+      _noteTableName,
+      note.toJson(),
+      where: 'id = ?',
+      whereArgs: [note.id],
+    );
   }
 
   // Create
