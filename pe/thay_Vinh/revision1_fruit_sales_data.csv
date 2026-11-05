@@ -1,0 +1,16 @@
+# PRM393 - Revision 1 - Fruit Sales - Sample Data (10 records)
+# Reference local date for days_left / expected_group: 2026-11-08
+# Date format: YYYY-MM-DD. Enter via Add Fruit screen; id is auto-generated.
+# Rules: days_left < 0 => Expired | 0 <= days_left <= 7 => Expiring soon | days_left > 7 => Fresh
+id,name,origin,price_vnd,expired_date,days_left_at_2026-11-08,expected_group
+1,Xoai Cat Chu,Dong Thap,25000,2026-11-09,1,Expiring soon
+2,Cam Sanh,Can Tho,30000,2026-11-20,12,Fresh
+3,Buoi Da Xanh,Ben Tre,45000,2026-11-05,-3,Expired
+4,Chuoi Gia Huong,Dong Nai,20000,2026-11-08,0,Expiring soon
+5,Dau Tay Da Lat,Lam Dong,80000,2026-11-14,6,Expiring soon
+6,Sau Rieng Ri6,Tien Giang,120000,2026-11-30,22,Fresh
+7,Nho Ninh Thuan,Ninh Thuan,65000,2026-11-02,-6,Expired
+8,Thanh Long,Binh Thuan,30000,2026-11-15,7,Expiring soon
+9,Mit Thai,Long An,35000,2026-12-01,23,Fresh
+10,Bo Sap,Dak Lak,40000,2026-11-16,8,Fresh
+# Expected at 2026-11-08: Total 10 | Expired 2 (ids 3,7) | Expiring soon 4 (ids 1,4,5,8) | Fresh 4 (ids 2,6,9,10)

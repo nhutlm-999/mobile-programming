@@ -1,0 +1,18 @@
+# PRM393 - Revision 2 - Cosmetic Sales - Sample Data (10 records)
+# Enter via Add Cosmetic screen; id is auto-generated.
+# Rules: stock = 0 => Out of stock | 1 <= stock <= 9 => Low stock | stock >= 10 => In stock
+# Low-stock warning threshold: stock <= 9
+id,name,category,price_vnd,stock,status
+1,Son Mac Ruby Woo,Lipstick,650000,50,In stock
+2,Kem Nen Maybelline,Foundation,320000,0,Out of stock
+3,Serum La Roche-Posay,Skincare,850000,120,In stock
+4,Phan Ma Hong Innisfree,Blush,280000,8,Low stock
+5,Dau Xoa Trang Bioderma,Cleanser,420000,3,Low stock
+6,Nuoc Hoa Chanel No5,Fragrance,3200000,25,In stock
+7,Chi Ke Mat 3CE,Eyeliner,250000,0,Out of stock
+8,Kem Chong Nang Anessa,Sunscreen,520000,40,In stock
+9,Son Duong Laneige,Lip Balm,390000,15,In stock
+10,Mat Na Sulwhasoo,Mask,1150000,60,In stock
+# Expected: Total 10 | Out of stock 2 (ids 2,7) | Low stock 2 (ids 4,5) | In stock 6
+# Low Stock Warning Screen: 4 items (ids 2,4,5,7)
+# Total inventory value = 313,650,000 VND
